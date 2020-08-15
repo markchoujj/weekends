@@ -59,7 +59,7 @@ module V1
       get ":id" do
         premise = Premise.find(params[:id])
         response_format
-        present :data, premise, with: V1::Entities::Premise
+        present :data, premise, with: V1::Entities::Premise, detail: true
       end
     end
   end
