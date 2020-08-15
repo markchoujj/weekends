@@ -39,6 +39,13 @@ module V1
         present :data, premises, with: V1::Entities::Premise
         response_format
       end
+
+      desc "Premise detail"
+      get ":id" do
+        premise = Premise.find(params[:id])
+        response_format
+        present :data, premise, with: V1::Entities::Premise
+      end
     end
   end
 end

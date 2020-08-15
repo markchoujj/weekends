@@ -4,9 +4,11 @@
 #
 #  id         :bigint           not null, primary key
 #  address    :string
+#  available  :integer
 #  close_time :integer
 #  gaming     :boolean
 #  heat       :integer
+#  inside     :integer
 #  latitude   :decimal(10, 7)
 #  license_no :string
 #  longitude  :decimal(10, 7)
