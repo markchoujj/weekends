@@ -12,6 +12,7 @@ module V1
         optional :name, type: String
         optional :drink, type: String
         optional :limit, type: Integer
+        optional :customer_count, type: Integer
       end
       get do
         limit = params[:limit] || 10
@@ -24,6 +25,9 @@ module V1
         end
         if params[:lowest_heat].present?
           premises = premises.where("heat >= ?", params[:lowest_heat])
+        end
+        if params[:customer_count].present?
+          premises = premises.where("available - inside > ?", params[:customer_count])
         end
         if params[:drink].present?
           premises = premises.joins(:drinks).where("LOWER(drinks.name) LIKE ?", "%#{params[:drink]}%")
