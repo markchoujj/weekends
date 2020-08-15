@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Ruby version:
+  2.6.3
 
-Things you may want to cover:
+* API address:
+  http://api.weekends.mdpexchange.com
 
-* Ruby version
+* Data used
+  1. Premise license data: https://data.nsw.gov.au/data/dataset/liquor-licence-premises-list/resource/4c317574-04c4-4ad1-b266-a0cbfffa378a
 
-* System dependencies
+  2. Drink data: https://data.world/datafiniti/wine-beer-and-liquor-reviews
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Data processing:
+  In lib/import_csv_data.rb, csv data is transmitted into SQL data.

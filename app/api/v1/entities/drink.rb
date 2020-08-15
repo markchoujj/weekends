@@ -5,6 +5,9 @@ module V1
       expose :real_price do |drink, opt|
         drink.premise_drinks.find_by(premise_id: opt[:premise].id).price
       end
+      expose :amount do |drink, opt|
+        drink.premise_drinks.find_by(premise_id: opt[:premise].id).amount
+      end
     end
   end
 end
