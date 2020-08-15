@@ -36,7 +36,7 @@ module V1
 
         premises.sort_by{|pr| pr.get_distance(coordinates)}.first(limit)
 
-        present :data, premises
+        present :data, premises, with: V1::Entities::Premise
         response_format
       end
     end
