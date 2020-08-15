@@ -13,6 +13,7 @@ module V1
         optional :drink, type: String
         optional :limit, type: Integer
         optional :customer_count, type: Integer
+        optional :gaming, type: Boolean
       end
       get do
         limit = params[:limit] || 10
@@ -32,6 +33,16 @@ module V1
         if params[:drink].present?
           premises = premises.joins(:drinks).where("LOWER(drinks.name) LIKE ?", "%#{params[:drink]}%")
         end
+        if params[:gaming].present?
+          premises = premises.where(gaming: params[:gaming])
+        end
+
+        premises = premises.where("longitude > ? AND longitude < ? AND latitude > ? AND latitude < ?",
+          params[:longitude] - 2,
+          params[:longitude] + 2,
+          params[:latitude] - 2,
+          params[:latitude] + 2
+        )
 
         coordinates = [params[:latitude].to_f, params[:longitude].to_f]
 
