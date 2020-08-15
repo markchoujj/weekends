@@ -14,4 +14,6 @@
 #
 
 class Drink < ApplicationRecord
+  has_many :premise_drinks
+  has_many :premises, through: :premise_drinks
 end
